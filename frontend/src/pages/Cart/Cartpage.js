@@ -20,7 +20,8 @@ const Cartpage = ({ match, location, history }) => {
     }, [dispatch, id, qty]);
 
     const checkoutHandler = () => {
-        history.push('./login?redirect=shipping');
+        if (!localStorage.getItem("userInfo")) history.push("/login");
+        else history.push('/shipping');
     };
 
     return (
